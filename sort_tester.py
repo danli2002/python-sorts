@@ -23,8 +23,9 @@ def time_sort_algorithm(algorithm, array, num_runs):
 
 
 if __name__ == '__main__':
-    arr = [random.randint(1, 1000) for _ in range(1000)]
-    print(test_sort_algorithm('insertion_sort'))
-    num_runs = 1000
-    time = time_sort_algorithm('insertion_sort', arr, num_runs)
-    print(f'Time for one run: {time}')
+    algorithms = ['insertion_sort', 'selection_sort']
+    for algorithm in algorithms:
+        arr = [random.randint(1, 1000) for _ in range(1000)]
+        num_runs = 10
+        time = time_sort_algorithm(algorithm, arr, num_runs)
+        print(f'One run using {algorithm}: {time:.5f}s')

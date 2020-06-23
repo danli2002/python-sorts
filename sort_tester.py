@@ -9,10 +9,9 @@ def test_sort_algorithm(algorithm):
     """ Ensure that the provided algorithm correctly sorts arrays """
     arr = [random.randint(1, 1000) for _ in range(1000)]
     setup = f'from {algorithm} import {algorithm}'
-    stmt = f'{algorithm}({arr})'
-    print(setup)
+    stmt = f'global sorted_arr; sorted_arr = {algorithm}({arr})'
     exec(setup)
-    sorted_arr = exec(stmt)
+    exec(stmt)
     return sorted(arr) == sorted_arr
 
 

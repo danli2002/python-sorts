@@ -10,18 +10,13 @@ compares every pair of elements.
 It's also horribly inefficient, although it is super simple to understand and implement
 '''
 
-def bubble_sort(li):
-    swapped = True # boolean flag to break out of the loop if more sorting is unnecessary
+
+def bubble_sort(arr):
+    swapped = True  # boolean flag to break out of the loop if more sorting is unnecessary
     while swapped:
         swapped = False
-        for i in range(len(li)):
-            for j in range(len(li) - 1):
-                if li[j] > li[j+1]:
-                    li[j],li[j+1] = li[j+1],li[j] # swaps
+        for i in range(len(arr)):
+            for j in range(len(arr) - 1):
+                if arr[j] > arr[j + 1]:
+                    arr[j], arr[j + 1] = arr[j + 1], arr[j]  # swaps
                     swapped = True
-
-
-if __name__ == '__main__':
-    list = [4,3,2,1]
-    bubble_sort(list)
-    print(list)

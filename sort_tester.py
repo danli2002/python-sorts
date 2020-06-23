@@ -18,14 +18,16 @@ def test_sort_algorithm(algorithm):
 def time_sort_algorithm(algorithm, array, num_runs):
     setup = f'from {algorithm} import {algorithm}'
     stmt = f'{algorithm}({array})'
+    if algorithm == 'sorted':  # built-in sort
+        setup = ''
     time = timeit.timeit(setup=setup, stmt=stmt, number=num_runs)
     return time / num_runs
 
 
 if __name__ == '__main__':
-    algorithms = ['bubble_sort', 'insertion_sort', 'selection_sort', 'quicksort']
+    algorithms = ['bubble_sort', 'insertion_sort', 'selection_sort', 'quicksort', 'sorted']
     max_name_len = len(max(algorithms, key=len))
-    num_runs = 100
+    num_runs = 20
     N = 1000
     for algorithm in algorithms:
         arr = [random.randint(1, N) for _ in range(N)]

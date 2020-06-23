@@ -23,9 +23,12 @@ def time_sort_algorithm(algorithm, array, num_runs):
 
 
 if __name__ == '__main__':
-    algorithms = ['insertion_sort', 'selection_sort']
+    algorithms = ['bubble_sort', 'insertion_sort', 'selection_sort', 'quicksort']
+    max_name_len = len(max(algorithms, key=len))
+    num_runs = 100
+    N = 1000
     for algorithm in algorithms:
-        arr = [random.randint(1, 1000) for _ in range(1000)]
-        num_runs = 10
+        arr = [random.randint(1, N) for _ in range(N)]
         time = time_sort_algorithm(algorithm, arr, num_runs)
-        print(f'One run using {algorithm}: {time:.5f}s')
+        # print times, left align algorithm names for better formatting
+        print(f'One run using {algorithm:<{max_name_len}}: {time:.5f}s')
